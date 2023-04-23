@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:philippines_rpcmb/src/src.dart';
 
@@ -16,7 +17,9 @@ void main() {
         await File('assets/philippine_provinces_cities_municipalities_and_barangays_2019v2.json').readAsString();
     json = jsonDecode(jsonString);
 
-    print('loaded');
+    if (kDebugMode) {
+      print('loaded');
+    }
     json.forEach((regionKey, regionData) {
       final List<Province> provinces = [];
       final Map provinceList = regionData['province_list'];
@@ -54,14 +57,18 @@ void main() {
       ));
     });
 
-    print('Regions: ${regions.length}');
+    if (kDebugMode) {
+      print('Regions: ${regions.length}');
+    }
   });
   test('Update assets/regions.json from assets/philippine_provinces_cities_municipalities_and_barangays_2019v2.json',
       () async {
     final regionsJson = jsonEncode(regions);
     await File('assets/regions.json').writeAsString(regionsJson);
 
-    print('Regions in assets/regions.json updated');
+    if (kDebugMode) {
+      print('Regions in assets/regions.json updated');
+    }
 
     expect(json.length, regions.length);
   });
@@ -74,7 +81,9 @@ void main() {
 void regionListWriter(List<Region> regions) {
   final buffer = StringBuffer();
 
-  print("regionListWriter started");
+  if (kDebugMode) {
+    print("regionListWriter started");
+  }
   buffer.writeln("import '../src.dart';"); // added import statement
   buffer.writeln("const philippineRegions = const [");
   for (final region in regions) {
