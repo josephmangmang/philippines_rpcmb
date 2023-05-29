@@ -49,6 +49,7 @@ class PhilippineRegionDropdownView extends StatelessWidget {
     return _PhilippineDropdownView(
       choices: regions,
       onChanged: onChanged,
+      value: value,
       itemBuilder: (BuildContext context, e) {
         return itemBuilder?.call(context, e) ?? DropdownMenuItem(value: e, child: Text(e.regionName));
       },
@@ -76,6 +77,7 @@ class PhilippineProvinceDropdownView extends StatelessWidget {
     return _PhilippineDropdownView(
       choices: provinces,
       onChanged: onChanged,
+      value: value,
       itemBuilder: (BuildContext context, e) {
         return itemBuilder?.call(context, e) ?? DropdownMenuItem(value: e, child: Text(e.name));
       },
@@ -103,6 +105,7 @@ class PhilippineMunicipalityDropdownView extends StatelessWidget {
     return _PhilippineDropdownView(
       choices: municipalities,
       onChanged: onChanged,
+      value: value,
       itemBuilder: (BuildContext context, e) {
         return itemBuilder?.call(context, e) ?? DropdownMenuItem(value: e, child: Text(e.name));
       },
@@ -130,6 +133,7 @@ class PhilippineBarangayDropdownView extends StatelessWidget {
     return _PhilippineDropdownView(
       choices: barangays,
       onChanged: onChanged,
+      value: value,
       itemBuilder: (BuildContext context, e) {
         return itemBuilder?.call(context, e) ?? DropdownMenuItem(value: e, child: Text(e));
       },
