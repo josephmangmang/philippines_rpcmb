@@ -1,3 +1,5 @@
+## 0.0.3
+* Fix dropdown item render overflow
 
 ## 0.0.2
 * Load value
